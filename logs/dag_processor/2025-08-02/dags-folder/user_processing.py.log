@@ -1,0 +1,3 @@
+{"timestamp":"2025-08-02T00:12:56.566840","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/user_processing.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-08-02T00:37:46.266413","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/user_processing.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-08-02T00:47:54.308123","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/user_processing.py","logger":"airflow.models.dagbag.DagBag"}
