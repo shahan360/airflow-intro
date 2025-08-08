@@ -250,3 +250,5 @@
 {"timestamp":"2025-08-08T04:13:04.768831","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/celery.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2025-08-08T04:13:35.297382","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/celery.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2025-08-08T04:14:05.837502","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/celery.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-08-08T04:14:36.458042","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/celery.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-08-08T04:15:07.058608","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/celery.py","logger":"airflow.models.dagbag.DagBag"}
