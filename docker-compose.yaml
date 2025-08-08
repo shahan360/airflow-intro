@@ -53,7 +53,7 @@ x-airflow-common:
   # build: .
   environment:
     &airflow-common-env
-    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor #CeleryExecutor
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__API_AUTH__JWT_SECRET: 'test-key'
@@ -163,7 +163,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-  # airflow-worker:
+  # airflow-worker-1:
   #   <<: *airflow-common
   #   command: celery worker
   #   healthcheck:
@@ -187,6 +187,31 @@ services:
   #       condition: service_healthy
   #     airflow-init:
   #       condition: service_completed_successfully
+
+  # airflow-worker-2:
+  #   <<: *airflow-common
+  #   command: celery worker -q high_cpu
+  #   healthcheck:
+  #     # yamllint disable rule:line-length
+  #     test:
+  #       - "CMD-SHELL"
+  #       - 'celery --app airflow.providers.celery.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}" || celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"'
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 5
+  #     start_period: 30s
+  #   environment:
+  #     <<: *airflow-common-env
+  #     # Required to handle warm shutdown of the celery workers properly
+  #     # See https://airflow.apache.org/docs/docker-stack/entrypoint.html#signal-propagation
+  #     DUMB_INIT_SETSID: "0"
+  #   restart: always
+  #   depends_on:
+  #     <<: *airflow-common-depends-on
+  #     airflow-apiserver:
+  #       condition: service_healthy
+  #     airflow-init:
+  #       condition: service_completed_successfully      
 
   airflow-triggerer:
     <<: *airflow-common
