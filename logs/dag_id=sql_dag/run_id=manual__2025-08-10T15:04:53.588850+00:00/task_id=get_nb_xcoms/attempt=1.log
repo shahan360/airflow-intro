@@ -1,0 +1,11 @@
+{"timestamp":"2025-08-10T15:04:54.216866","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-08-10T15:04:54.217335","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/sql.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-08-10T15:04:54.301778","level":"info","event":"Executing: SELECT COUNT(*) FROM xcom","logger":"airflow.task.operators.my_sdk.decorators.sql._SQLDecoratedOperator"}
+{"timestamp":"2025-08-10T15:04:54.303360","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-08-10T15:04:55.146631","level":"warning","event":"Skipping masking for a secret as it's too short (<5 chars)","logger":"airflow.sdk.execution_time.secrets_masker"}
+{"timestamp":"2025-08-10T15:04:55.146738","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-08-10T15:04:55.154664","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-08-10T15:04:55.159546","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-08-10T15:04:55.164408","level":"info","event":"Running statement: SELECT COUNT(*) FROM xcom, parameters: None","logger":"airflow.task.hooks.airflow.providers.postgres.hooks.postgres.PostgresHook"}
+{"timestamp":"2025-08-10T15:04:55.166959","level":"info","event":"Rows affected: 1","logger":"airflow.task.hooks.airflow.providers.postgres.hooks.postgres.PostgresHook"}
+{"timestamp":"2025-08-10T15:04:55.167443","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('01989483-5c84-7651-a3b7-28ab15b64990'), task_id='get_nb_xcoms', dag_id='sql_dag', run_id='manual__2025-08-10T15:04:53.588850+00:00', try_number=1, map_index=-1, hostname='7a6baedf23d7', context_carrier=None, task=<Task(_SQLDecoratedOperator): get_nb_xcoms>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=0, start_date=datetime.datetime(2025, 8, 10, 15, 4, 54, 82360, tzinfo=TzInfo(UTC)), end_date=None, is_mapped=False)","logger":"task"}
